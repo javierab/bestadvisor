@@ -1,0 +1,30 @@
+@*
+ * List of professors and research topics related to the passed description
+ *@
+ 
+@(title: String, profs: List[(String, String)])(implicit assetsFinder: AssetsFinder)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@assetsFinder.path("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@assetsFinder.path("images/favicon.png")">
+        <script src="@assetsFinder.path("javascripts/hello.js")" type="text/javascript"></script>
+    </head>
+    <body>
+    	<div id="content" class="wrapper doc article">
+    
+    		<h1>@title</h1>
+    		
+        	@* And here's where we render the `Html` object containing
+         	* the page content. *@
+         	<ul>
+		 	@for(prof <- profs) {
+  				<li> <h3> @Html(prof._1)</h3> <a> @prof._2</a> </li>
+		 	}
+        	</ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+@import helper._
+@(descForm: Form[DescForm])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+
+<div id="content" class="wrapper doc">
+
+  <h1>Oh hello! </h1>
+  
+  <a href="@routes.ProfController.getList">View full list of professors</a>
+
+  <h2> Best Advisor</h2>
+  <p> Write what you like as "X and Y" and we'll tell you who should be your advisor! </br>
+  i.e. "Networks and Wireless", or "Natural language processing", or "Distributed data and architecture".  </p>
+    
+    
+   @form(action = routes.ProfController.postDescription()) {
+        @inputText(descForm("description"))
+
+        <input type="submit" value="Go!">
+    }
+	
+</div>
+

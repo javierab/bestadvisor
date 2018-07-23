@@ -1,0 +1,12 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home
+GET     /                           controllers.HomeController.index
+
+# List of professors
+GET		/proflist					controllers.ProfController.getList
+
+# List of professors given a description
+POST	/description				controllers.ProfController.postDescription
